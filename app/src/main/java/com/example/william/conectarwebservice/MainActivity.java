@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Carregar a variavel do botão e associar ao evento click.
         btnConsumir = (Button)findViewById(R.id.btnConsumir);
         btnConsumir.setOnClickListener(this);
 
