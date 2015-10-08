@@ -20,7 +20,7 @@ public class CallSoap extends AsyncTask<String, String, Boolean> {
     public final String SOAP_ACTION = "http://www.friendship.com.br/HelloWorld";
     public  final String OPERATION_NAME = "HelloWorld";
     public  final String WSDL_TARGET_NAMESPACE = "http://www.friendship.com.br/";
-    public  final String SOAP_ADDRESS = "http://diprospero.friendship.com.br/ListaAudiencias.asmx";
+    public  final String SOAP_ADDRESS = "http://192.168.0.230/webJurisApp/servicesapp/PautaService.asmx";
 
     String strResult;
     private ProgressDialog dialog;
@@ -53,7 +53,7 @@ public class CallSoap extends AsyncTask<String, String, Boolean> {
             httpTransport.call(SOAP_ACTION, envelope);
             response = envelope.getResponse();
             strResult = response.toString();
-            for (int i=0;i<5000;i++) {
+            for (int i=0;i<5;i++) {
                 strResult = strResult.toString() + i;
             }
             return true;
@@ -61,6 +61,7 @@ public class CallSoap extends AsyncTask<String, String, Boolean> {
         catch (Exception exception)
         {
             response=exception.toString();
+            strResult = exception.toString();
             return false;
         }
     }
